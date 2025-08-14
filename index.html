@@ -1,220 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TK SURE PREDICTIONS</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #121212;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background: linear-gradient(90deg, #ff6a00, #ee0979);
-        padding: 20px;
-        text-align: center;
-        font-size: 28px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        color: white;
-    }
-
-    .table-container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px;
-    }
-
-    h2 {
-        margin-top: 40px;
-        text-align: center;
-        color: #ffcc00;
-        font-size: 22px;
-        border-bottom: 2px solid #ffcc00;
-        padding-bottom: 5px;
-        display: inline-block;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-        background-color: #1e1e1e;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    th, td {
-        padding: 14px;
-        text-align: center;
-    }
-
-    th {
-        background-color: #2c2c2c;
-        color: #ffcc00;
-        text-transform: uppercase;
-        font-size: 14px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #292929;
-    }
-
-    .tip {
-        padding: 8px 14px;
-        border-radius: 6px;
-        font-weight: bold;
-        color: white;
-        display: inline-block;
-    }
-
-    /* Tip colors */
-    .tip-away { background-color: #2196f3; }
-    .tip-home { background-color: #4caf50; }
-    .tip-x2 { background-color: #3f51b5; }
-    .tip-1x { background-color: #9c27b0; }
-    .tip-over { background-color: #ff9800; }
-    .tip-gg { background-color: #e91e63; }
-
-    @media (max-width: 768px) {
-        table, thead, tbody, th, td, tr {
-            display: block;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Sure Predictions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
         }
-        tr { margin-bottom: 15px; }
-        td {
-            text-align: right;
-            padding-left: 50%;
-            position: relative;
-        }
-        td::before {
-            content: attr(data-label);
-            position: absolute;
+        canvas {
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 50%;
-            padding-left: 10px;
-            text-align: left;
-            color: #bbb;
+            z-index: -1;
         }
-    }
-</style>
+        h1 {
+            color: #00cfff;
+            font-size: 2.5rem;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #00cfff;
+        }
+        .login-box {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #ff0;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px #ff0;
+        }
+        .login-box h2 {
+            color: #ff0;
+        }
+        .login-box input {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .login-box button {
+            padding: 10px 20px;
+            background-color: #ff0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        th {
+            background-color: #00cfff;
+            padding: 12px;
+            color: #000;
+            font-size: 1rem;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #ff0;
+            margin-top: 40px;
+        }
+        .main-content {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-<header>⚽ TK SURE PREDICTIONS ⚽</header>
+    <canvas id="galaxy"></canvas>
 
-<div class="table-container">
+    <h1>TK SURE PREDICTIONS</h1>
 
-    <!-- TOP PREDICTIONS -->
-    <h2>Top Predictions</h2>
+    <!-- FREE PREDICTIONS ALWAYS VISIBLE -->
+    <h2 class="section-title">Free Predictions</h2>
     <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Odds</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>15:00</td><td>England Premier League</td><td>Man City vs Aston Villa</td><td class="tip tip-home">Home (1)</td><td>1.40</td></tr>
-            <tr><td>16:30</td><td>Spain La Liga</td><td>Real Madrid vs Girona</td><td class="tip tip-home">Home (1)</td><td>1.35</td></tr>
-            <tr><td>18:00</td><td>Italy Serie A</td><td>AC Milan vs Napoli</td><td class="tip tip-over">Over 2.5</td><td>1.80</td></tr>
-            <tr><td>19:45</td><td>France Ligue 1</td><td>Lille vs Rennes</td><td class="tip tip-x2">X2</td><td>1.60</td></tr>
-            <tr><td>21:00</td><td>Germany Bundesliga</td><td>Bayern vs Dortmund</td><td class="tip tip-over">Over 2.5</td><td>1.55</td></tr>
-        </tbody>
+        <tr><th>Match</th><th>Prediction</th></tr>
+        <tr><td>Team A vs Team B</td><td>Over 2.5 Goals</td></tr>
+        <tr><td>Team C vs Team D</td><td>Home Win</td></tr>
+        <tr><td>Team E vs Team F</td><td>Both Teams to Score</td></tr>
+        <tr><td>Team G vs Team H</td><td>Draw</td></tr>
+        <tr><td>Team I vs Team J</td><td>Away Win</td></tr>
     </table>
 
-    <!-- SIX STRAIGHT WINS -->
-    <h2>Six Straight Wins</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Odds</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>18:00</td><td>Lithuania Cup</td><td>Jonava vs Panevėžys</td><td class="tip tip-away">Away (2)</td><td>1.20</td></tr>
-            <tr><td>18:00</td><td>Czech Cup</td><td>Nové Sady vs Hlučín</td><td class="tip tip-away">Away (2)</td><td>1.31</td></tr>
-            <tr><td>19:00</td><td>Spain La Liga</td><td>Sevilla vs Barcelona</td><td class="tip tip-away">Away (2)</td><td>1.65</td></tr>
-            <tr><td>20:00</td><td>France Ligue 1</td><td>PSG vs Lyon</td><td class="tip tip-home">Home (1)</td><td>1.45</td></tr>
-            <tr><td>21:00</td><td>Italy Serie A</td><td>Juventus vs Inter</td><td class="tip tip-home">Home (1)</td><td>1.70</td></tr>
-        </tbody>
-    </table>
+    <!-- LOGIN -->
+    <div class="login-box" id="loginBox">
+        <h2>🔒 VIP Access</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        <br>
+        <button onclick="checkPassword()">Login</button>
+    </div>
 
-    <!-- DOUBLE CHANCE -->
-    <h2>Double Chance Predictions</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Odds</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>16:00</td><td>England League One</td><td>Portsmouth vs Derby</td><td class="tip tip-x2">X2</td><td>1.42</td></tr>
-            <tr><td>17:00</td><td>Netherlands Eredivisie</td><td>Ajax vs PSV</td><td class="tip tip-x2">X2</td><td>1.50</td></tr>
-            <tr><td>18:00</td><td>Portugal Liga</td><td>Porto vs Sporting</td><td class="tip tip-1x">1X</td><td>1.35</td></tr>
-            <tr><td>19:00</td><td>Germany 2. Bundesliga</td><td>Hamburg vs Hannover</td><td class="tip tip-1x">1X</td><td>1.28</td></tr>
-            <tr><td>20:00</td><td>Belgium Pro League</td><td>Club Brugge vs Genk</td><td class="tip tip-x2">X2</td><td>1.38</td></tr>
-        </tbody>
-    </table>
+    <!-- VIP CONTENT -->
+    <div class="main-content" id="mainContent">
 
-    <!-- OVER/UNDER -->
-    <h2>Over/Under 2.5 Goals</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Odds</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>18:30</td><td>Germany Bundesliga</td><td>Bayern vs Leipzig</td><td class="tip tip-over">Over 2.5</td><td>1.55</td></tr>
-            <tr><td>19:00</td><td>Italy Serie B</td><td>Parma vs Cagliari</td><td class="tip tip-over">Over 2.5</td><td>1.60</td></tr>
-            <tr><td>20:00</td><td>Spain La Liga</td><td>Atletico Madrid vs Valencia</td><td class="tip tip-over">Over 2.5</td><td>1.75</td></tr>
-            <tr><td>21:00</td><td>France Ligue 2</td><td>Bordeaux vs Metz</td><td class="tip tip-over">Over 2.5</td><td>1.80</td></tr>
-            <tr><td>22:00</td><td>England Premier League</td><td>Arsenal vs Chelsea</td><td class="tip tip-over">Over 2.5</td><td>1.65</td></tr>
-        </tbody>
-    </table>
+        <h2 class="section-title">🔥 VIP Predictions 🔥</h2>
+        <table>
+            <tr><th>Category</th><th>Match</th><th>Prediction</th></tr>
+            <tr><td>Over 2.5</td><td>VIP Match 1</td><td>Yes</td></tr>
+            <tr><td>Corner</td><td>VIP Match 2</td><td>Over 10</td></tr>
+            <tr><td>Straight Win</td><td>VIP Match 3</td><td>Home Win</td></tr>
+            <tr><td>Top Prediction</td><td>VIP Match 4</td><td>Away Win</td></tr>
+            <tr><td>Double Chance</td><td>VIP Match 5</td><td>1X</td></tr>
+            <tr><td>BTTS</td><td>VIP Match 6</td><td>Yes</td></tr>
+        </table>
 
-    <!-- GG/NO GG -->
-    <h2>GG / No GG</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>League</th>
-                <th>Match</th>
-                <th>Tip</th>
-                <th>Odds</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>20:00</td><td>Premier League</td><td>Liverpool vs Bournemouth</td><td class="tip tip-gg">Over 8.5</td><td>1.70</td></tr>
-            <tr><td>21:00</td><td>Norway</td><td>Stromsgodset vs Bodo/Glimt</td><td class="tip tip-gg">Over 8.5</td><td>1.85</td></tr>
-            <tr><td>22:00</td><td>Germany Bundesliga</td><td>Dortmund vs Stuttgart</td><td class="tip tip-gg">Over 7.5</td><td>1.60</td></tr>
-            <tr><td>23:00</td><td>France Ligue 1</td><td>Marseille vs Nice</td><td class="tip tip-gg">Over 7.5</td><td>1.75</td></tr>
-            <tr><td>20:30</td><td>Custom League</td><td>Example Team A vs Team B</td><td class="tip tip-gg">Over 8.5</td><td>1.80</td></tr>
-        </tbody>
-    </table>
+        <h2 class="section-title">⚡ High Confidence Picks ⚡</h2>
+        <table>
+            <tr><th>Category</th><th>Match</th><th>Prediction</th></tr>
+            <tr><td>Over 2.5</td><td>VIP Match 7</td><td>Yes</td></tr>
+            <tr><td>Corner</td><td>VIP Match 8</td><td>Under 9</td></tr>
+            <tr><td>Straight Win</td><td>VIP Match 9</td><td>Away Win</td></tr>
+            <tr><td>Top Prediction</td><td>VIP Match 10</td><td>Home Win</td></tr>
+            <tr><td>Double Chance</td><td>VIP Match 11</td><td>X2</td></tr>
+            <tr><td>BTTS</td><td>VIP Match 12</td><td>No</td></tr>
+        </table>
 
-</div>
+        <h2 class="section-title">💎 Premium Specials 💎</h2>
+        <table>
+            <tr><th>Category</th><th>Match</th><th>Prediction</th></tr>
+            <tr><td>Over 2.5</td><td>VIP Match 13</td><td>Yes</td></tr>
+            <tr><td>Corner</td><td>VIP Match 14</td><td>Over 11</td></tr>
+            <tr><td>Straight Win</td><td>VIP Match 15</td><td>Home Win</td></tr>
+            <tr><td>Top Prediction</td><td>VIP Match 16</td><td>Draw</td></tr>
+            <tr><td>Double Chance</td><td>VIP Match 17</td><td>1X</td></tr>
+            <tr><td>BTTS</td><td>VIP Match 18</td><td>Yes</td></tr>
+        </table>
+
+        <h2 class="section-title">🏆 Ultimate Locks 🏆</h2>
+        <table>
+            <tr><th>Category</th><th>Match</th><th>Prediction</th></tr>
+            <tr><td>Over 2.5</td><td>VIP Match 19</td><td>Yes</td></tr>
+            <tr><td>Corner</td><td>VIP Match 20</td><td>Under 8</td></tr>
+            <tr><td>Straight Win</td><td>VIP Match 21</td><td>Away Win</td></tr>
+            <tr><td>Top Prediction</td><td>VIP Match 22</td><td>Home Win</td></tr>
+            <tr><td>Double Chance</td><td>VIP Match 23</td><td>2X</td></tr>
+            <tr><td>BTTS</td><td>VIP Match 24</td><td>No</td></tr>
+        </table>
+
+    </div>
+
+    <script>
+        // PASSWORD CHECK
+        function checkPassword() {
+            const correctPassword = "TKLOVMONEY";
+            const enteredPassword = document.getElementById("password").value;
+            if (enteredPassword === correctPassword) {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                alert("Incorrect password! Access denied.");
+            }
+        }
+
+        // GALAXY BACKGROUND
+        const canvas = document.getElementById("galaxy");
+        const ctx = canvas.getContext("2d");
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        function createStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    speed: Math.random() * 0.5
+                });
+            }
+        }
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#fff";
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+        function updateStars() {
+            stars.forEach(star => {
+                star.y += star.speed;
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+        }
+        function animate() {
+            drawStars();
+            updateStars();
+            requestAnimationFrame(animate);
+        }
+
+        createStars();
+        animate();
+    </script>
 
 </body>
 </html>
