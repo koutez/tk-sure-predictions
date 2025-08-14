@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TK SURE PREDICTIONS</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: linear-gradient(90deg, #ff6a00, #ee0979);
+        padding: 20px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        color: white;
+    }
+
+    .table-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h2 {
+        margin-top: 40px;
+        text-align: center;
+        color: #ffcc00;
+        font-size: 22px;
+        border-bottom: 2px solid #ffcc00;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #2c2c2c;
+        color: #ffcc00;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #292929;
+    }
+
+    .tip {
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-weight: bold;
+        color: white;
+        display: inline-block;
+    }
+
+    /* Tip colors */
+    .tip-away { background-color: #2196f3; }
+    .tip-home { background-color: #4caf50; }
+    .tip-x2 { background-color: #3f51b5; }
+    .tip-1x { background-color: #9c27b0; }
+    .tip-over { background-color: #ff9800; }
+    .tip-gg { background-color: #e91e63; }
+
+    @media (max-width: 768px) {
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+        tr { margin-bottom: 15px; }
+        td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+        td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 10px;
+            text-align: left;
+            color: #bbb;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>⚽ TK SURE PREDICTIONS ⚽</header>
+
+<div class="table-container">
+
+    <!-- TOP PREDICTIONS -->
+    <h2>Top Predictions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Odds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>15:00</td><td>England Premier League</td><td>Man City vs Aston Villa</td><td class="tip tip-home">Home (1)</td><td>1.40</td></tr>
+            <tr><td>16:30</td><td>Spain La Liga</td><td>Real Madrid vs Girona</td><td class="tip tip-home">Home (1)</td><td>1.35</td></tr>
+            <tr><td>18:00</td><td>Italy Serie A</td><td>AC Milan vs Napoli</td><td class="tip tip-over">Over 2.5</td><td>1.80</td></tr>
+            <tr><td>19:45</td><td>France Ligue 1</td><td>Lille vs Rennes</td><td class="tip tip-x2">X2</td><td>1.60</td></tr>
+            <tr><td>21:00</td><td>Germany Bundesliga</td><td>Bayern vs Dortmund</td><td class="tip tip-over">Over 2.5</td><td>1.55</td></tr>
+        </tbody>
+    </table>
+
+    <!-- SIX STRAIGHT WINS -->
+    <h2>Six Straight Wins</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Odds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>18:00</td><td>Lithuania Cup</td><td>Jonava vs Panevėžys</td><td class="tip tip-away">Away (2)</td><td>1.20</td></tr>
+            <tr><td>18:00</td><td>Czech Cup</td><td>Nové Sady vs Hlučín</td><td class="tip tip-away">Away (2)</td><td>1.31</td></tr>
+            <tr><td>19:00</td><td>Spain La Liga</td><td>Sevilla vs Barcelona</td><td class="tip tip-away">Away (2)</td><td>1.65</td></tr>
+            <tr><td>20:00</td><td>France Ligue 1</td><td>PSG vs Lyon</td><td class="tip tip-home">Home (1)</td><td>1.45</td></tr>
+            <tr><td>21:00</td><td>Italy Serie A</td><td>Juventus vs Inter</td><td class="tip tip-home">Home (1)</td><td>1.70</td></tr>
+        </tbody>
+    </table>
+
+    <!-- DOUBLE CHANCE -->
+    <h2>Double Chance Predictions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Odds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>16:00</td><td>England League One</td><td>Portsmouth vs Derby</td><td class="tip tip-x2">X2</td><td>1.42</td></tr>
+            <tr><td>17:00</td><td>Netherlands Eredivisie</td><td>Ajax vs PSV</td><td class="tip tip-x2">X2</td><td>1.50</td></tr>
+            <tr><td>18:00</td><td>Portugal Liga</td><td>Porto vs Sporting</td><td class="tip tip-1x">1X</td><td>1.35</td></tr>
+            <tr><td>19:00</td><td>Germany 2. Bundesliga</td><td>Hamburg vs Hannover</td><td class="tip tip-1x">1X</td><td>1.28</td></tr>
+            <tr><td>20:00</td><td>Belgium Pro League</td><td>Club Brugge vs Genk</td><td class="tip tip-x2">X2</td><td>1.38</td></tr>
+        </tbody>
+    </table>
+
+    <!-- OVER/UNDER -->
+    <h2>Over/Under 2.5 Goals</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Odds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>18:30</td><td>Germany Bundesliga</td><td>Bayern vs Leipzig</td><td class="tip tip-over">Over 2.5</td><td>1.55</td></tr>
+            <tr><td>19:00</td><td>Italy Serie B</td><td>Parma vs Cagliari</td><td class="tip tip-over">Over 2.5</td><td>1.60</td></tr>
+            <tr><td>20:00</td><td>Spain La Liga</td><td>Atletico Madrid vs Valencia</td><td class="tip tip-over">Over 2.5</td><td>1.75</td></tr>
+            <tr><td>21:00</td><td>France Ligue 2</td><td>Bordeaux vs Metz</td><td class="tip tip-over">Over 2.5</td><td>1.80</td></tr>
+            <tr><td>22:00</td><td>England Premier League</td><td>Arsenal vs Chelsea</td><td class="tip tip-over">Over 2.5</td><td>1.65</td></tr>
+        </tbody>
+    </table>
+
+    <!-- GG/NO GG -->
+    <h2>GG / No GG</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>League</th>
+                <th>Match</th>
+                <th>Tip</th>
+                <th>Odds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>20:00</td><td>Premier League</td><td>Liverpool vs Bournemouth</td><td class="tip tip-gg">Over 8.5</td><td>1.70</td></tr>
+            <tr><td>21:00</td><td>Norway</td><td>Stromsgodset vs Bodo/Glimt</td><td class="tip tip-gg">Over 8.5</td><td>1.85</td></tr>
+            <tr><td>22:00</td><td>Germany Bundesliga</td><td>Dortmund vs Stuttgart</td><td class="tip tip-gg">Over 7.5</td><td>1.60</td></tr>
+            <tr><td>23:00</td><td>France Ligue 1</td><td>Marseille vs Nice</td><td class="tip tip-gg">Over 7.5</td><td>1.75</td></tr>
+            <tr><td>20:30</td><td>Custom League</td><td>Example Team A vs Team B</td><td class="tip tip-gg">Over 8.5</td><td>1.80</td></tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
